@@ -1,0 +1,152 @@
+📁 File Management
+
+    /organize <folder> - Automatically sorts files into categorized folders (images, documents, audio, etc.)
+
+    /sort-by-date <folder> - Sorts files into year-month folders based on modification date
+
+    /find-dupes <folder> - Finds duplicate files using MD5 hashing
+
+    /watch <folder> - Watches a folder for changes (create, modify, delete)
+
+🚀 Application Control
+
+    /launch <app> - Launches applications (works on macOS, Windows, Linux)
+
+    /run <script> - Runs scripts with auto-detected interpreter (Python, Node.js, Ruby, PHP, Swift, Bash)
+
+    /ps - Lists running processes with CPU and memory usage
+
+    /kill <pid|name> - Terminates processes
+
+🛠️ Development
+
+    /create-project <type> <name> - Creates project scaffolds for Python, web, Node.js, Swift, Xcode
+
+    /build <path> - Builds projects using appropriate tools (swift build, npm build, xcodebuild)
+
+    /test <path> - Runs tests (pytest, unittest, npm test, swift test, rspec)
+
+🎮 Hardware Utilization
+
+    /gpu-info - Detects and shows GPU information (NVIDIA, AMD, Apple Silicon)
+
+    /train <script> - Runs ML training scripts with GPU support (sets CUDA_VISIBLE_DEVICES)
+
+    /ollama-gpu - Checks if Ollama is using GPU
+
+📱 Remote Operation
+
+    /remote-start [port] - Starts a Flask HTTP server for remote control
+
+    /remote-stop - Stops the remote server
+
+    /remote-token - Shows the authentication token
+
+    Can control from phone via HTTP requests with token authentication
+
+📧 Email Integration
+
+    /email-file <pattern> <to> - Finds files matching pattern and emails them via Gmail SMTP
+
+    Interactive email credential input
+
+    Supports attachments
+
+Key Features:
+
+    No timeout by default - Can wait indefinitely for model responses
+
+    Thread-safe - Uses concurrent.futures for parallel processing
+
+    Cross-platform - Works on macOS, Linux, Windows (with appropriate adjustments)
+
+    Persistent storage - All data saved in ~/.tiny-swarm-data/
+
+    Color-coded output - Different models have different colors
+
+    Dynamic terminal width - Adapts to your terminal size
+
+The remote server can be controlled from a phone by sending POST requests to:
+
+    http://your-ip:port/execute - Execute commands
+
+    http://your-ip:port/files/list - List files
+
+    http://your-ip:port/files/get - Get file content
+
+    http://your-ip:port/apps/launch - Launch apps
+
+All requests require the authentication token for security.
+
+ TINY SWARM COMMANDS:
+
+CHAT:
+  /list              - Show available models
+  /refresh           - Refresh model list from Ollama
+  /select m1,m2      - Select specific models
+  /select-small      - Select small models (<2GB)
+  /parallel N        - Set parallel workers (default: 3)
+  /timeout [N]       - Set timeout in seconds (no arg = no timeout)
+
+COLLABORATION:
+  /chain <m1,m2,m3> <prompt>    - Chain collaboration
+  /debate <topic> [models] [rounds] - Model debate
+  /ensemble <prompt> [method]   - Ensemble (majority/summary/raw)
+  /specialist <task>            - Specialist collaboration
+  /collab-list                  - List saved collaborations
+
+EXPORT:
+  /export [json|csv|md] - Export conversation
+  /save              - Save conversation (JSON)
+
+BENCHMARK:
+  /benchmark [timeout] - Run benchmarks (optional timeout)
+  /compare <prompt>  - Compare models
+  /stats             - Show performance stats
+
+BATCH:
+  /batch <file> [json|csv] [timeout] - Process prompts file
+
+SYSTEM:
+  /system <model> <prompt> - Set system prompt
+  /clear             - Clear screen
+  /quit              - Exit
+
+✨ NEW ENHANCED FEATURES:
+
+📁 FILE MANAGEMENT:
+  /organize <folder>           - Organize files by category
+  /sort-by-date <folder>       - Sort files into date folders
+  /find-dupes <folder>         - Find duplicate files
+  /watch <folder>              - Watch folder for changes
+
+🚀 APPLICATION CONTROL:
+  /launch <app> [args]         - Launch an application
+  /run <script> [interpreter]  - Run a script
+  /ps                          - List running processes
+  /kill <pid|name>             - Kill a process
+
+🛠  DEVELOPMENT:
+  /create-project <type> <name> [path] - Create project (python/web/node/swift/xcode)
+  /build <path> [release|debug] - Build project
+  /test <path>                 - Run project tests
+
+🎮 HARDWARE:
+  /gpu-info                    - Show GPU information
+  /train <script> [gpu]        - Train ML model (use GPU)
+  /ollama-gpu                  - Check if Ollama uses GPU
+
+📱 REMOTE CONTROL:
+  /remote-start [port]         - Start remote server
+  /remote-stop                 - Stop remote server
+  /remote-token                - Show access token
+  /email-file <pattern> <to>   - Find and email a file
+
+EXAMPLES:
+  /organize ~/Downloads                    # Organize downloads folder
+  /launch Chrome                            # Launch Chrome
+  /create-project python myapp              # Create Python app
+  /gpu-info                                 # Check GPU status
+  /remote-start 8080                        # Start remote server
+  /email-file "*.pdf" user@example.com      # Email PDF files
+
